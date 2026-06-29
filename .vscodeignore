@@ -8,3 +8,8 @@ tsconfig.json
 .gitignore
 *.vsix
 **/.DS_Store
+.code-review-graph/**
+.claude/**
+.agent/**
+icon1.png
+package-lock.json

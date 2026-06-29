@@ -1,0 +1,118 @@
+{
+  "name": "code-critters",
+  "displayName": "Code Critters — Desk Pets",
+  "description": "Cute animated pixel pets that walk along a panel in your editor while you code.",
+  "version": "0.9.1",
+  "publisher": "josh8471",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josh8471/code-critters"
+  },
+  "bugs": {
+    "url": "https://github.com/josh8471/code-critters/issues"
+  },
+  "homepage": "https://github.com/josh8471/code-critters#readme",
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "pet",
+    "pets",
+    "pixel",
+    "mascot",
+    "fun",
+    "cat",
+    "dog",
+    "productivity"
+  ],
+  "galleryBanner": {
+    "color": "#1a1a2e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "codeCritters.petsView",
+          "name": "Pets",
+          "type": "webview",
+          "icon": "media/paw.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "codeCritters.spawn",
+        "title": "Spawn a Pet",
+        "category": "Code Critters"
+      },
+      {
+        "command": "codeCritters.removeOne",
+        "title": "Remove a Pet",
+        "category": "Code Critters"
+      },
+      {
+        "command": "codeCritters.rename",
+        "title": "Rename a Pet",
+        "category": "Code Critters"
+      },
+      {
+        "command": "codeCritters.clear",
+        "title": "Remove All Pets",
+        "category": "Code Critters"
+      },
+      {
+        "command": "codeCritters.throwTreat",
+        "title": "Throw a Treat",
+        "category": "Code Critters"
+      }
+    ],
+    "configuration": {
+      "title": "Code Critters",
+      "properties": {
+        "codeCritters.size": {
+          "type": "string",
+          "default": "small",
+          "enum": [
+            "nano",
+            "small",
+            "medium",
+            "large"
+          ],
+          "description": "How big the pets are drawn."
+        },
+        "codeCritters.showNames": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show each pet's name under it."
+        },
+        "codeCritters.reactToErrors": {
+          "type": "boolean",
+          "default": true,
+          "description": "Let a pet announce when the number of errors in your code changes."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "icon": "node scripts/make-icon.js"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.22.0",
+    "typescript": "^5.3.0"
+  }
+}
